@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django DevOps Learning Project</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Django DevOps Learning Project</h1>
+        <p>This is a simple Django application for learning DevOps practices.</p>
+        
+        <h2>Tasks</h2>
+        {% if tasks %}
+            <ul>
+            {% for task in tasks %}
+                <li>{{ task.title }} - {{ task.description }}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No tasks available. Create some through the admin panel!</p>
+        {% endif %}
+        
+        <div class="devops-info">
+            <h3>DevOps Tools Used:</h3>
+            <ul>
+                <li>✅ GitHub Actions for CI/CD</li>
+                <li>✅ Docker for containerization</li>
+                <li>✅ Ansible for configuration management</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

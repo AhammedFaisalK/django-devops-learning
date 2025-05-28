@@ -1,0 +1,44 @@
+# docker-compose.yml
+version: "3.8"
+
+services:
+  # Development service
+  web-dev:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=dev-secret-key-change-in-production
+      - DJANGO_SETTINGS_MODULE=myproject.settings
+    command: python manage.py runserver 0.0.0.0:8000
+    restart: unless-stopped
+
+  # Production-like service
+  web-prod:
+    build: .
+    ports:
+      - "8001:8000"
+    environment:
+      - DEBUG=False
+      - SECRET_KEY=prod-secret-key-change-in-production
+      - DJANGO_SETTINGS_MODULE=myproject.settings
+    restart: unless-stopped
+
+  # SQLite database is file-based, no separate service needed
+  # Uncomment below if you want to add PostgreSQL later for learning
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     - POSTGRES_DB=django_devops
+  #     - POSTGRES_USER=django
+  #     - POSTGRES_PASSWORD=django123
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   ports:
+  #     - "5432:5432"
+  #   restart: unless-stopped
+# volumes:
+# postgres_data:
