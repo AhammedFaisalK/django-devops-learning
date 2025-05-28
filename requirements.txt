@@ -1,4 +1,18 @@
+# Keep your existing Django dependencies
 asgiref==3.8.1
 Django==5.2.1
 sqlparse==0.5.3
 typing_extensions==4.13.2
+
+# Add missing production server (THIS IS THE MAIN FIX)
+gunicorn>=21.2.0
+
+# Static file serving for production
+whitenoise>=6.5.0
+
+# Optional: Database support for future use
+psycopg2-binary>=2.9.0
+
+# Development and testing tools (for CI/CD pipeline)
+flake8>=6.1.0
+coverage>=7.3.0
