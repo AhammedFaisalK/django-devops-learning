@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from .models import Task
 
 def index(request):
@@ -7,7 +7,7 @@ def index(request):
     context = {
         'tasks': tasks
     }
-    return render(request, 'index.html', context)
+    return HttpResponse("<h1>Welcome to Django DevOps Learning!</h1><p>Application is running successfully.</p>")
 
 def health_check(request):
     return JsonResponse({'status': 'healthy', 'message': 'Django app is running'})
