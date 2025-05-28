@@ -1,33 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Django DevOps Learning Project</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django DevOps Learning</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; }
+        .status { background: #e8f5e8; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .task { background: #f8f9fa; padding: 10px; margin: 10px 0; border-left: 4px solid #007bff; }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Django DevOps Learning Project</h1>
-        <p>This is a simple Django application for learning DevOps practices.</p>
+        <h1>🚀 Django DevOps Learning Project</h1>
         
-        <h2>Tasks</h2>
+        <div class="status">
+            ✅ <strong>Application Status:</strong> Running Successfully!
+        </div>
+        
+        <h2>📋 Tasks</h2>
         {% if tasks %}
-            <ul>
             {% for task in tasks %}
-                <li>{{ task.title }} - {{ task.description }}</li>
+                <div class="task">
+                    <strong>{{ task.title }}</strong>
+                    <p>{{ task.description }}</p>
+                </div>
             {% endfor %}
-            </ul>
         {% else %}
-            <p>No tasks available. Create some through the admin panel!</p>
+            <div class="task">
+                <strong>Welcome Task</strong>
+                <p>Your Django DevOps learning environment is ready! 🎉</p>
+            </div>
         {% endif %}
         
-        <div class="devops-info">
-            <h3>DevOps Tools Used:</h3>
-            <ul>
-                <li>✅ GitHub Actions for CI/CD</li>
-                <li>✅ Docker for containerization</li>
-                <li>✅ Ansible for configuration management</li>
-            </ul>
-        </div>
+        <h2>🔧 DevOps Features</h2>
+        <ul>
+            <li>✅ Docker containerization</li>
+            <li>✅ GitHub Actions CI/CD</li>
+            <li>✅ Ansible automation</li>
+            <li>✅ Health monitoring</li>
+            <li>✅ Security scanning</li>
+        </ul>
+        
+        <p><a href="/health/">🏥 Check Health Status</a></p>
     </div>
 </body>
 </html>

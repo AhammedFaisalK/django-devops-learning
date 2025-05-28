@@ -7,7 +7,7 @@ def index(request):
     context = {
         'tasks': tasks
     }
-    return HttpResponse("<h1>Welcome to Django DevOps Learning!</h1><p>Application is running successfully.</p>")
+    return render(request, "index.html", context)
 
 def health_check(request):
     return JsonResponse({'status': 'healthy', 'message': 'Django app is running'})
